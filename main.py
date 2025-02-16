@@ -4,6 +4,7 @@ from os import path
 import numpy as np
 import librosa
 import tempfile
+import joblib
 
 st.title("Human Scream Detection App")
 
@@ -13,7 +14,7 @@ with open(path.join(filename),'rb') as f:
 
 filename2="label_encoder.pk"
 with open(path.join(filename2),'rb') as t:
-    label_encoder=pickle.load(t)
+    label_encoder=joblib.load(t)
     
 # Function to extract features from an audio file
 def extract_features(file_path):
