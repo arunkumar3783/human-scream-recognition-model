@@ -41,7 +41,7 @@ def predict_audio(file_path, model, label_encoder):
     if len(prediction) == 0:
         return "Unknown"
 
-    predicted_label = label_encoder.inverse_transform([prediction[0]])  # Fix: No need for argmax
+    predicted_label = label_encoder.inverse_transform([np.argmax(prediction)])
     return predicted_label[0]
 
 #upload audio file
