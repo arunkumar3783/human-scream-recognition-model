@@ -12,8 +12,8 @@ with open(path.join(filename),'rb') as f:
     model=pickle.load(f)
 
 filename2="label_encoder.pkl"
-with open(path.join(filename2),'rb') as l:
-    label_encoder=pickle.load(l)
+with open(path.join(filename2),'rb') as t:
+    label_encoder=pickle.load(t)
     
 # Function to extract features from an audio file
 def extract_features(file_path):
