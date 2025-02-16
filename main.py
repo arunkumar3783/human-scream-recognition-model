@@ -38,17 +38,10 @@ def predict_audio(file_path, model, label_encoder):
 #upload audio file
 audio_file = st.file_uploader("Upload an audio file", type=["mp3", "wav", "ogg"])
 
-if audio_file is not None:
-    st.audio(audio_file, format=audio_file.type)  # Play uploaded audio
-
-    # Convert file to a temporary WAV format for processing
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_file:
-        temp_file.write(audio_file.read())
-        temp_file_path = temp_file.name
 
 # Add a "Predict" button
 if st.button("Predict"):
-    prediction_result = predict_audio(temp_file_path, model, label_encoder)
+    prediction_result = predict_audio(audio_file, model, label_encoder)
     
     if prediction_result == 1:
           print("Nearby Officer is alerted")
