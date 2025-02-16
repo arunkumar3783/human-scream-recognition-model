@@ -2,5 +2,3 @@ streamlit
 numpy
 scikit-learn
 librosa 
-tensorflow
-pickle
