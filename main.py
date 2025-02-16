@@ -47,7 +47,13 @@ def predict_audio(file_path, model, label_encoder):
 #upload audio file
 audio_file = st.file_uploader("Upload an audio file", type=["mp3", "wav", "ogg"])
 
-st.audio(audio_file, format=audio_file.type)  # Play uploaded audio
+if audio_file is not None:
+    # Play uploaded audio
+    st.audio(audio_file, format=audio_file.type)
+    st.success("Audio uploaded successfully!")
+else:
+    st.warning("Please upload an audio file.")
+
 
 
 # Add a "Predict" button
