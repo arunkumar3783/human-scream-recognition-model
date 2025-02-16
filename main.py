@@ -5,7 +5,7 @@ import numpy as np
 import librosa
 import tempfile
 
-st.title("Human Screen Detection App")
+st.title("Human Scream Detection App")
 
 filename="model.pk"
 with open(path.join(filename),'rb') as f:
