@@ -11,7 +11,7 @@ filename="model.pk"
 with open(path.join(filename),'rb') as f:
     model=pickle.load(f)
 
-filename2="label_encoder.pkl"
+filename2="label_encoder.pk"
 with open(path.join(filename2),'rb') as t:
     label_encoder=pickle.load(t)
     
