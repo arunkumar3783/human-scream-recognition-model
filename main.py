@@ -55,6 +55,6 @@ if st.button("Predict"):
     prediction_result = predict_audio(audio_file, model, label_encoder)
     
     if prediction_result == 1:
-        st.write("Nearby Officer is alerted")
+        st.write("Human scream detected")
     else:
-        st.write("No alert Required")
+        st.write("No Human scream detected")
