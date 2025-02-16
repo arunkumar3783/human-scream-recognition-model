@@ -49,7 +49,7 @@ if audio_file is not None:
         temp_file_path = temp_file.name
 
 # Add a "Predict" button
-if st.button("🔍 Predict"):
+if st.button("Predict"):
     prediction_result = predict_audio(temp_file_path, model, label_encoder)
     
     if prediction_result == 1:
