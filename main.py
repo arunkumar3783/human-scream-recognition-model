@@ -57,4 +57,4 @@ if st.button("Predict"):
     if prediction_result == 1:
         st.write("Nearby Officer is alerted")
     else:
-        print("No alert required")
+        st.write("No alert Required")
