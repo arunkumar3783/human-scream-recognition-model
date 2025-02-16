@@ -12,6 +12,12 @@ filename="model.pk"
 with open(path.join(filename),'rb') as f:
     model=pickle.load(f)
 
+if model is None:
+    raise ValueError("Model is not loaded properly!")
+
+if not hasattr(model, "predict"):
+    raise ValueError("Loaded object is not a valid ML model!")
+
 filename2="label_encoder.pk"
 with open(path.join(filename2),'rb') as t:
     label_encoder=joblib.load(t)
