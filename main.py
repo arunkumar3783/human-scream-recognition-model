@@ -17,10 +17,19 @@ with open(path.join(filename2),'rb') as t:
     label_encoder=joblib.load(t)
     
 # Function to extract features from an audio file
-def extract_features(file_path):
-    y, sr = librosa.load(file_path, sr=None)  # Load audio file
-    mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=40)  # Extract MFCC features
-    return np.mean(mfccs, axis=1)  # Take mean of MFCCs
+def extract_features(file_path, mfcc=True, chroma=True, mel=True):
+    y, sr = librosa.load(file_path, mono=True)
+    features = []
+    if mfcc:
+        mfccs = np.mean(librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13), axis=1)
+        features.extend(mfccs)
+    if chroma:
+        chroma = np.mean(librosa.feature.chroma_stft(y=y, sr=sr), axis=1)
+        features.extend(chroma)
+    if mel:
+        mel = np.mean(librosa.feature.melspectrogram(y=y, sr=sr), axis=1)
+        features.extend(mel)
+    return features
 
 # Function to predict whether an audio file contains a scream or not
 def predict_audio(file_path, model, label_encoder):
