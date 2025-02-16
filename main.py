@@ -24,15 +24,15 @@ def extract_features(file_path):
 
 # Function to predict whether an audio file contains a scream or not
 def predict_audio(file_path, model, label_encoder):
-
     feature = extract_features(file_path)
-    feature = np.array(feature).reshape(1, -1)
+    feature = np.array(feature).reshape(1, -1)  # Ensure it's 2D
+
     prediction = model.predict(feature)
-    
+
     if len(prediction) == 0:
         return "Unknown"
 
-    predicted_label = label_encoder.inverse_transform([np.argmax(prediction)])
+    predicted_label = label_encoder.inverse_transform([prediction[0]])  # Fix: No need for argmax
     return predicted_label[0]
 
 #upload audio file
