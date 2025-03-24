@@ -1,2 +1,2 @@
-# mode1
-knhjv
+# HUMAN SCREAM RECOGNITION
+This model is used for recognising human scream 
